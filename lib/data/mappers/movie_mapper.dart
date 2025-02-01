@@ -1,3 +1,4 @@
+import 'package:movie_app/data/models/movieDb/movie_details.dart';
 import 'package:movie_app/data/models/movieDb/movie_from_moviedb.dart';
 import 'package:movie_app/domain/entities/movie.dart';
 
@@ -24,4 +25,25 @@ class MovieMapper {
       video: moviedb.video,
       voteAverage: moviedb.voteAverage,
       voteCount: moviedb.voteCount);
+
+  static Movie movieDetailsToEntity(MovieDetails movie) => Movie(
+      adult: movie.adult,
+      backdropPath: (movie.backdropPath != '')
+          ? 'https://image.tmdb.org/t/p/w500${movie.backdropPath}'
+          : '',
+      genreIds: movie.genres.map((e) => e.name).toList(),
+      id: movie.id,
+      originalLanguage: movie.originalLanguage,
+      originalTitle: movie.originalTitle,
+      overview: movie.overview,
+      popularity: movie.popularity,
+      posterPath: (movie.backdropPath != '')
+          ? 'https://image.tmdb.org/t/p/w500${movie.posterPath}'
+          // este no-poster a la hora de adquierer los datos va a permitir filtrar con el where las peliculas que no tenga poster
+          : 'no-poster',
+      releaseDate: movie.releaseDate,
+      title: movie.title,
+      video: movie.video,
+      voteAverage: movie.voteAverage,
+      voteCount: movie.voteCount);
 }

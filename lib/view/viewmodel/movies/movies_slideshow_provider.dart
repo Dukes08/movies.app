@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/domain/entities/movie.dart';
 import 'package:movie_app/view/viewmodel/movies/movies_providers.dart';
-import 'package:movie_app/view/widgets/movies/movies_slideshow.dart';
 
 // ref mantiene referencia a todos los providers creados, es decir, se pueden acceder a traves de ref
 
