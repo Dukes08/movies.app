@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animate_do/animate_do.dart';
-
-import '../../domain/entities/movie.dart';
-import '../viewmodel/actors/actors_by_movie_provider.dart';
-import '../viewmodel/movies/movie_info_provider.dart';
+import 'package:movie_app/domain/entities/movie.dart';
+import 'package:movie_app/view/viewmodel/actors/actors_by_movie_provider.dart';
+import 'package:movie_app/view/viewmodel/movies/movie_info_provider.dart';
 
 class MovieScreen extends ConsumerStatefulWidget {
   static const name = 'movie-screen';
@@ -127,7 +126,6 @@ class _ActorsByMovie extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final actorsByMovie = ref.watch(actorsByMovieProvider);
-    print(actorsByMovie);
 
     if (actorsByMovie[movieId] == null) {
       return const CircularProgressIndicator(strokeWidth: 2);
